@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IslamiCore - Futuristik Nav</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --neon-blue: #00f2ff;
+            --deep-space: #05060a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--deep-space);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            /* Background efek luar angkasa sederhana */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 242, 255, 0.05) 0%, transparent 40%);
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6%;
+            height: 80px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Logo Area */
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            height: 100%;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+
+        /* Hover Effect Line */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover::after, 
+        .nav-item.active a::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Dropdown Styling */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(10, 11, 16, 0.95);
+            border: 1px solid var(--border-glass);
+            min-width: 220px;
+            padding: 1rem 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu li a {
+            padding: 0.7rem 1.5rem;
+            display: block;
+            text-transform: none;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: 0.3s;
+        }
+
+        .dropdown-menu li a::after { display: none; } /* Hilangkan garis bawah di dropdown */
+
+        .dropdown-menu li a:hover {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--neon-blue);
+            padding-left: 1.8rem;
+        }
+
+        /* Content Placeholder */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 80px);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+    <nav class="navbar">
+        <div class="logo">JASMINE<span>KEREN</span></div>
+        
+
+        <div style="width: 150px; text-align: right;">
+            <small style="color: var(--neon-blue); font-size: 0.7rem; letter-spacing: 2px;">SYSTEM ACTIVE</small>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>🌙DZIKIR SETELAH SHOLAT</h1>
+        <p style="color: rgba(255,255,255,0.5); letter-spacing: 5px; text-transform: uppercase;">Eksplorasi Kebijaksanaan dalam Digitalisasi</p>
+    </div>
+<p>أَسْتَغْفِرُ اللهَ (3x)<P>
+<P>ا َللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ</P>
+
+<P>Astagh-firullah 3x</p>
+
+<p/>Allahumma antas salaam wa minkas salaam tabaarokta yaa dzal jalaali wal ikrom.
+
+,<P>Artinya:
+“Aku minta ampun kepada Allah,” (3x).</P>
+
+<p>.“Ya Allah, Engkau pemberi keselamatan, dan dariMu keselamatan, Maha Suci Engkau, wahai Tuhan Yang Pemilik Keagungan dan Kemuliaan.” </P>
+
+<P> Faedah: Rasulullah shallallahu ‘alaihi wa sallam jika selesai dari shalatnya beliau beristighfar sebanyak tiga kali dan membaca dzikir di atas. Al Auza’i menyatakan bahwa bacaan istighfar adalah astaghfirullah, astaghfirullah. [1] </P>
+
+[2]</P>
+
+<p>Allahumma laa maani’a limaa a’thoyta wa laa mu’thiya limaa mana’ta wa laa yanfa’u dzal jaddi minkal jaddu.</P>
+
+<p>Artinya:
+“Tiada Rabb yang berhak disembah selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya puji dan bagi-Nya kerajaan. Dia Maha Kuasa atas segala sesuatu. Ya Allah, tidak ada yang mencegah apa yang Engkau berikan dan tidak ada yang memberi apa yang Engkau cegah. Tidak berguna kekayaan dan kemuliaan itu bagi pemiliknya (selain iman dan amal shalihnya yang menyelamatkan dari siksaan). Hanya dari-Mu kekayaan dan kemuliaan.”[2]</P>
+
+<P>[3<P/>
+<P>لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللهِ، لاَ إِلَـهَ إِلاَّ اللهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ، لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لاَ إِلَـهَ إِلاَّ اللهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ</P>
+
+<p>Laa ilaha illallah wahdahu laa syarika lah. Lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir.</P>
+
+<p>Laa hawla wa laa quwwata illa billah. Laa ilaha illallah wa laa na’budu illa iyyaah. Lahun ni’mah wa lahul fadhlu wa lahuts tsanaaul hasan.</P>
+
+<p>Laa ilaha illallah mukhlishiina lahud diin wa law karihal kaafiruun.</P>
+
+<P>Artinya:</P>
+<P>“Tiada Rabb (yang berhak disembah) kecuali Allah, Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan pujaan. Dia Mahakuasa atas segala sesuatu. Tidak ada daya dan kekuatan kecuali (dengan pertolongan) Allah. Tiada Rabb (yang hak disembah) kecuali Allah. Kami tidak menyembah kecuali kepada-Nya. Bagi-Nya nikmat, anugerah dan pujaan yang baik. Tiada Rabb (yang hak disembah) kecuali Allah, dengan memurnikan ibadah kepadaNya, sekalipun orang-orang kafir sama benci.”</P>
+
+<p>Faedah: Dikatakan oleh ‘Abdullah bin Zubair, Nabi shallallahu ‘alaihi wa sallam biasa membaca tahlil (laa ilaha illallah) di akhir shalat.[4]</P>
+
+<p>[4] </P>
+<p>ُبْحَانَ اللهِ (33 ×)</P>
+
+ا<p>َلْحَمْدُ لِلَّهِ (33 ×)</P>
+
+ا<p>َللهُ أَكْبَرُ (33 ×)</P>
+
+<P>لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ</P>
+
+<p>Subhanallah (33x)</P>
+
+<p>Al hamdulillah (33x)</P>
+
+ <p>Allahu akbar (33 x)</P>
+
+<P>Laa ilaha illallah wahdahu laa syarika lah. Lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir.</p>
+
+<P>Artinya:</p>
+<P>“Maha Suci Allah (33 x), segala puji bagi Allah (33 x), Allah Maha Besar (33 x). Tidak ada Rabb (yang berhak disembah) kecuali Allah Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan. Bagi-Nya pujaan. Dia-lah Yang Mahakuasa atas segala sesuatu.”</p>
+
+Faedah: Siapa yang membaca dzikir di atas, maka dosa-dosanya diampuni walau sebanyak buih di lautan.[5] Kata Imam Nawawi rahimahullah, tekstual hadits menunjukkan bahwa bacaan Subhanallah, Alhamdulillah, Allahu akbar, masing-masing dibaca 33 kali secara terpisah.</p>
+
+<p>[5]</p>
+<P>Membaca ayat Kursi setiap selesai shalat (fardhu).</p>
+
+<P>Faedah: Siapa membaca ayat Kursi setiap selesai shalat, tidak ada yang menghalanginya masuk surga selain kematian.</p>
+
+<P>[6]</p>
+<P>Membaca surat Al-Ikhlas, Al-Falaq dan An-Naas setiap selesai shalat (fardhu).</p>
+
+<P>Faedah: Tiga surat ini disebut mu’awwidzot.</p>
+
+<P>[7]</p>
+<P>اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً</p>
+
+<P>Allahumma inni as-aluka ‘ilman naafi’a, wa rizqon thoyyiba, wa ‘amalan mutaqobbala</p>
+
+<P>Artinya:<P>
+</p>“Ya Allah, sungguh aku memohon kepada-Mu ilmu yang bermanfaat (bagi diriku dan orang lain), rizki yang halal dan amal yang diterima (di sisi-Mu dan mendapatkan ganjaran yang baik).” (Dibaca setelah salam dari shalat Shubuh)</p>
+
+
+</body>
+</html>
